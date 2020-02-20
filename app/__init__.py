@@ -4,12 +4,11 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_bootstrap import Bootstrap
 
+app = Flask(__name__)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-
-app = Flask(__name__)
-app.config.from_object(Configon)
+app.config.from_object(Config)
 
 bootstrap = Bootstrap(app)
 from app import routes, models
